@@ -1,0 +1,84 @@
+http://localhost:8080/ws/courses.wsdl
+<wsdl:definitions targetNamespace="http://kodilla.com/courses/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:sch="http://kodilla.com/courses/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://kodilla.com/courses/soap">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://kodilla.com/courses/soap"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="getCourseRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCourseResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="course" type="tns:course"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="course">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="length" type="xs:int"/>
+                    <xs:element name="technology" type="tns:technology"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="technology">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="JAVA"/>
+                    <xs:enumeration value="JAVASCRIPT"/>
+                    <xs:enumeration value="HTML"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getCourseResponse">
+        <wsdl:part element="tns:getCourseResponse" name="getCourseResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getCourseRequest">
+        <wsdl:part element="tns:getCourseRequest" name="getCourseRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CoursesPort">
+        <wsdl:operation name="getCourse">
+            <wsdl:input message="tns:getCourseRequest" name="getCourseRequest"></wsdl:input>
+            <wsdl:output message="tns:getCourseResponse" name="getCourseResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CoursesPortSoap11" type="tns:CoursesPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCourse">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="getCourseRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getCourseResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CoursesPortService">
+        <wsdl:port binding="tns:CoursesPortSoap11" name="CoursesPortSoap11">
+            <soap:address location="http://localhost:8080/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>http://schemas.xmlsoap.org/wsdl/http://localhost:8080/wsUTF-8http://localhost:8080/ws<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">
+<soapenv:Header/>
+<soapenv:Body>
+    <soap:getCourseRequest>
+        <soap:name>?</soap:name>
+    </soap:getCourseRequest>
+</soapenv:Body>
+</soapenv:Envelope>SEQUENTIALCoursesPortSoap11getCourseUTF-8http://localhost:8080/ws<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">
+<soapenv:Header/>
+<soapenv:Body>
+    <soap:getCourseRequest>
+        <soap:name>?</soap:name>
+    </soap:getCourseRequest>
+</soapenv:Body>
+</soapenv:Envelope>No Authorizationa6cc3776-0eba-42cf-b590-53c08a59708d3true4GpM750FB79-1E4f1012.45E+1211-1.2312SoapUI is the
+        best 13P1Y2M3DT10H30M12.3S141999-05-31T13:20:00.000-05:00161999-05-3122-126789679923-88222333499111111124-214748364725-327682612727028-1291301267896799318822233349911111113229496729533655353425535SoapUI is the best36SoapUI is the besttruetrueONE_BY_ONE100
