@@ -3,6 +3,7 @@ http://localhost:8080/ws/courses.wsdl
                   xmlns:sch="http://kodilla.com/courses/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:tns="http://kodilla.com/courses/soap">
 
+
     <wsdl:types>
         <xs:schema elementFormDefault="qualified" targetNamespace="http://kodilla.com/courses/soap"
                    xmlns:xs="http://www.w3.org/2001/XMLSchema">
